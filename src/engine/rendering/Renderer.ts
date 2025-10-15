@@ -1,4 +1,4 @@
-import type { GameObject } from "engine";
+import type { Transform } from "engine";
 
 /**
  * Basic behavior of all Renderer types.
@@ -6,9 +6,11 @@ import type { GameObject } from "engine";
  * @author Zhen Loffreto
  */
 export abstract class Renderer {
-    protected gameobject: GameObject;
-    constructor(gameobject: GameObject) {
-        this.gameobject = gameobject;
+    protected transform: Transform;
+    public active: boolean;
+    constructor(transform: Transform) {
+        this.transform = transform;
+        this.active = true;
     }
     abstract draw(ctx: CanvasRenderingContext2D): void;
 }
